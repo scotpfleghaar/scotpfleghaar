@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 2 Lab</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+<div data-role="page" id="homePage">
+
+   <div data-role="header"><h1>Module 2 Lab</h1></div>
+
+   <div role="main" class="ui-content">
+   <p>Here is an example of a multipage application using jQuery!
+   </p>
+   
+   <p>
+    Here you can go to the <a href="#secondpage">second page</a> 
+    of this application.
+   </p>
+   </div>
+   
+   <div data-role="footer">
+   <h4>Copyright Scot Pfleghaar &copy; 2017</h4>
+   </div>
+   
+</div>
+
+<div data-role="page" id="secondpage">
+
+   <div data-role="header"><h1>Second Page</h1></div>
+
+   <div role="main" class="ui-content">
+   <p>
+   On this page youll find two links, one to return you to the home page and the other to bring you to rasmussen.edu/ 
+    In case you'd like to <a href="#homePage">return</a> 
+    to the main page.
+    In case you'd like to “<a href="http://www.rasmussen.edu" data-ajax="false">go</a>”
+    to Rasmussen.
+   </p>
+   </div>
+   
+   <div data-role="footer">
+   <h4>Copyright Scot Pfleghaar &copy; 2017</h4>
+   </div></div>
+</body>
+</html>

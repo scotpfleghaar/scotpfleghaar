@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scot's Course Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+    <div data-role="page" id="pageone">
+        <div data-role="header">
+            <img border="0" src="https://static1.squarespace.com/static/566391dce4b0288a697d8276/57f61b31725e25b359b8c911/57f61b3ef5e2311b1e560f90/1475746627292/Rasmussen+Logo+Design.png" alt="Logo, Rasmussen" style="float:left;display:inline;width: 2em;" />
+            <h1>Course Project</h1>
+            <h4>Favourite Things</h4>
+
+        </div>
+
+        <div data-role="main" data-theme="a" class="ui-content" data-filter="true">
+            <ul data-role="listview">
+                <li><a href="#pagetwo">List Item</a></li>
+                <li><a href="#pagethree">List Item</a></li>
+                <li><a href="#pagefour">List Item</a></li>
+                <li><a href="#pagefive">Form</a></li>
+                <li><a href="#pagesix">Contact</a></li>
+            </ul>
+        </div>
+
+        <div data-role="footer">
+            <h4>Copyright Scot Pfleghaar &copy; 2017</h4>
+        </div>
+    </div>
+    <div id="pagetwo" data-role="page" data-theme="a" data-add-back-btn="true">
+        <div data-role="header" data-theme="a" data-add-back-btn="true">
+            <h1>List 1</h1>
+        </div>
+        <div data-role="content">
+            <h4>Insert Content</h4>
+        </div>
+        <div data-role="footer">
+            <h4>Copyright Scot Pfleghaar &copy; 2017</h4>
+        </div>
+    </div>
+    <div id="pagethree" data-role="page" data-theme="a" data-add-back-btn="true">
+        <div data-role="header" data-theme="a" data-add-back-btn="true">
+            <h1>List 1</h1>
+        </div>
+        <div data-role="content">
+            <h4>Insert Content</h4>
+        </div>
+        <div data-role="footer">
+            <h4>Copyright Scot Pfleghaar &copy; 2017</h4>
+        </div>
+    </div>
+    <div id="pagefour" data-role="page" data-theme="a" data-add-back-btn="true">
+        <div data-role="header" data-theme="a" data-add-back-btn="true">
+            <h1>List 1</h1>
+        </div>
+        <div data-role="content">
+            <h4>Insert Content</h4>
+        </div>
+        <div data-role="footer">
+            <h4>Copyright Scot Pfleghaar &copy; 2017</h4>
+        </div>
+    </div>
+    <div id="pagefive" data-role="page" data-theme="a" data-add-back-btn="true">
+        <div data-role="header" data-theme="a" data-add-back-btn="true">
+            <h1>Form</h1>
+        </div>
+        <div data-role="content">
+            <form method="post" action="/action_page_post.php">
+                <div class="ui-field-contain">
+                    <label class="localstorage" for="fname">First name:</label>
+                    <input type="text" name="fname" id="fname">
+                    <label class="localstorage" for="lname">Last name:</label>
+                    <input type="text" name="lname" id="lname">
+                </div>
+                <fieldset data-role="controlgroup">
+                    <legend>Which Area Do you need Help?</legend>
+                    <input type="checkbox" name="checkbox-1a" id="checkbox-1a" checked="">
+                    <label for="checkbox-1a">Class</label>
+                    <input type="checkbox" name="checkbox-2a" id="checkbox-2a">
+                    <label for="checkbox-2a">Tutor</label>
+                    <input type="checkbox" name="checkbox-3a" id="checkbox-3a">
+                    <label for="checkbox-3a">Technology</label>
+                    <input type="checkbox" name="checkbox-4a" id="checkbox-4a">
+                    <label for="checkbox-4a">Materials</label>
+                    <input type="checkbox" name="checkbox-5a" id="checkbox-5a">
+                    <label for="checkbox-5a">Other</label>
+                </fieldset>
+                <input type="submit" data-inline="true" value="Submit">
+            </form>
+        </div>
+        <div data-role="footer">
+            <h4>Copyright Scot Pfleghaar &copy; 2017</h4>
+        </div>
+    </div>
+    <div id="pagesix" data-role="page" data-theme="a" data-add-back-btn="true">
+        <div data-role="header" data-theme="a" data-add-back-btn="true">
+            <h1>Contact</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-theme="c" data-filter="true">
+                <li><a class="ui-btn ui-icon-phone ui-btn-icon-left">(123) 456-6789</a></li>
+                <li><a class="ui-btn ui-icon-mail ui-btn-icon-left">rassymoose@rasmussen.edu</a></li>
+            </ul>
+        </div>
+        <div data-role="footer">
+            <h4>Copyright Scot Pfleghaar &copy; 2017</h4>
+        </div>
+    </div>
+</body>
+
+<script>
+    (function() {
+        var rasm = document.querySelector('.localstorage');
+
+        function supportsLocalStorage() {
+            return typeof(Storage) !== 'undefined';
+        }
+        if (!supportsLocalStorage()) {
+            rasm.value = 'Your browser does not support localStorage.';
+        } else {
+            try {
+                setInterval(function() {
+                    localStorage.setItem('autosave', rasm.value);
+                }, 1000);
+            } catch (e) {
+                if (e == QUOTA_EXCEEDED_ERR) {
+                    alert('Quota exceeded!');
+                }
+            }
+            if (localStorage.getItem('autosave')) {
+                rasm.value = localStorage.getItem('autosave');
+            }
+            document.querySelector('.clear').onclick = function() {
+                rasm.value = '';
+                localStorage.removeItem('autosave');
+            };
+            document.querySelector('.empty').onclick = function() {
+                rasm.value = '';
+                localStorage.clear();
+            };
+        }
+    })();
+</script>
+
+
+</html>

@@ -1,0 +1,23 @@
+function () {
+    var personsArray = [];
+
+    function addPerson() {
+        var person = new Object();
+        person.name = $("tf_name").val();
+        person.description = $("tf_desription").val();
+        personsArray.push(person);
+    }
+
+    funciton refreshContactList() {
+        for (var i = 0; i < personsArray.length; i++) {
+            $("#list_favourites").append(
+                "<li>" +
+                "<h2>" + personsArray[i].name + "</h2>" +
+                "<p>" + personsArray[i].description + "</p>" +
+                "<li>")
+        }
+    }
+
+    $("btn_add").on("click", addPerson);
+    $("#section1").on("pagebeforshow", refreshContactList);
+};
